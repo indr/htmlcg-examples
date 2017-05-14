@@ -28,8 +28,9 @@ gulp.task('build', [ 'clean', 'compile' ], function () {
 });
 
 gulp.task('compile', function () {
+  var pkg = JSON.parse(fs.readFileSync('./package.json'));
   gulp.src([ dir.src + '/*.html', dir.src + '/*.html.njk' ])
-    .pipe(gnunjucks.compile({}, {
+    .pipe(gnunjucks.compile({ title: `${pkg.name} ${pkg.version}` }, {
       env: new nunjucks.Environment(new nunjucks.FileSystemLoader(dir.src))
     }))
     .pipe(rename(function (path) {
