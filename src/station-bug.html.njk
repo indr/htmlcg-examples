@@ -1,0 +1,84 @@
+{% extends "template.njk" %}
+
+{% block head %}
+    <style type="text/css">
+        img#bug {
+            margin: 20px;
+            opacity: 0; /* Set initial visibility to full transparency */
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <img id="bug" src="images/casparlogo.png"/>
+
+    <script type="text/javascript">
+        (function ($, window) {
+            'use strict';
+            function Template () {
+                var fadeInOutMs = 400;
+                var intervalMs = 4000;
+                var rotationMs = 500;
+
+                this.$bug = $('#bug');
+
+                this.play = function () {
+                    this.fadeIn();
+                    this.startRotation();
+                };
+
+                this.next = function () {
+                    this.stopRotation();
+                    this.rotate();
+                    this.startRotation();
+                };
+
+                this.stop = function () {
+                    this.fadeOut();
+                    this.stopRotation();
+                };
+
+                this.startRotation = function () {
+                    if (this.intervalId) {
+                        this.stopRotation();
+                    }
+                    this.intervalId = window.setInterval(this.rotate.bind(this), intervalMs);
+                };
+
+                this.stopRotation = function () {
+                    window.clearInterval(this.intervalId);
+                    this.intervalId = null;
+                };
+
+                this.fadeIn = function () {
+                    this.$bug.velocity({
+                        opacity: 1
+                    }, {
+                        duration: fadeInOutMs
+                    });
+                };
+
+                this.fadeOut = function () {
+                    this.$bug.velocity({
+                        opacity: 0
+                    }, {
+                        duration: fadeInOutMs,
+                        queue: false // Don't queue this animation, fade out even during fade in and/or rotation
+                    });
+                };
+
+                this.rotate = function () {
+                    this.$bug.velocity({
+                        rotateY: '180deg'
+                    }, {
+                        loop: 1,
+                        duration: rotationMs,
+                        easing: 'easeInOutCubic'
+                    });
+                }
+            }
+
+            HtmlCg.run(new Template());
+        })(jQuery, window);
+    </script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{
+  "name": "htmlcg-starter",
+  "version": "0.1.0",
+  "description": "Project structure with samples for a new htmlcg-framework project",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indr/htmlcg-starter.git"
+  },
+  "author": "Reto Inderbitzin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/indr/htmlcg-starter/issues"
+  },
+  "homepage": "https://github.com/indr/htmlcg-starter#readme",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-nunjucks": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-usemin": "^0.3.28",
+    "gulp-zip": "^4.0.0"
+  },
+  "dependencies": {
+    "htmlcg-framework": "git://github.com/indr/htmlcg-framework.git",
+    "jquery": "^3.2.1",
+    "velocity-animate": "^1.5.0"
+  }
+}

@@ -1,0 +1,63 @@
+{% extends "template.njk" %}
+
+{% block body %}
+    <div class="template lower-third">
+        <div class="textbox textbox-title">
+            <p><span>Example lower-third template</span></p>
+        </div>
+        <div class="textbox textbox-subtitle">
+            <p><span>with subtitle</span></p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (function ($) {
+            'use strict';
+            function Template () {
+                this.$title = $('.textbox-title');
+                this.$subtitle = $('.textbox-subtitle');
+
+                this.data = {};
+
+                this.load = function () {
+                    this.$title.css('width', 0).css('opacity', 0);
+                    this.$subtitle.css('height', 0).css('opacity', 0);
+                };
+
+                this.play = function () {
+                    var self = this;
+                    $.Velocity(self.$title, {
+                        opacity: 1,
+                        width: self.$title.find('p').innerWidth()
+                    }).then(function () {
+                        self.$subtitle.velocity({
+                            opacity: 1,
+                            height: self.$subtitle.find('p').innerHeight()
+                        });
+                    });
+                };
+
+                this.stop = function () {
+                    var self = this;
+                    $.Velocity(self.$subtitle, {
+                        opacity: 0,
+                        height: 0
+                    }).then(function () {
+                        self.$title.velocity({
+                            opacity: 0,
+                            width: 0
+                        });
+                    });
+                };
+
+                this.onUpdate = function (data) {
+                    this.data = $.extend({}, this.data, data);
+                    this.$title.find('span').text(this.data.f0);
+                    this.$subtitle.find('span').text(this.data.f1);
+                }
+            }
+
+            HtmlCg.run(new Template());
+        })(jQuery);
+    </script>
+{% endblock %}

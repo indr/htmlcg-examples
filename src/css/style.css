@@ -1,0 +1,53 @@
+@font-face {
+    font-family: Poppins;
+    src: url('./fonts/Poppins-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('./fonts/Poppins-Regular.ttf');
+    font-weight: normal;
+}
+
+.template {
+    position: fixed;
+    display: block;
+    overflow: hidden;
+
+    font-family: Poppins-Bold, sans-serif;
+    font-weight: bold;
+}
+
+.lower-third {
+    top: 75%;
+    left: 5%;
+    width: 90%;
+}
+
+div.textbox {
+    opacity: 1;
+    overflow: hidden;
+}
+
+div.textbox p {
+    display: inline-block;
+    margin: 0;
+    padding: 6px 12px;
+}
+
+div.textbox span {
+    white-space: nowrap;
+}
+
+div.textbox-title p {
+    background-color: #eda129;
+    font-size: 50px;
+    color: white;
+}
+
+div.textbox-subtitle p {
+    background-color: white;
+    font-size: 30px;
+    color: #eda129;
+}
