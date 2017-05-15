@@ -1,0 +1,129 @@
+{% extends "template.njk" %}
+
+{% block body %}
+    <div class="template full-list">
+        <table>
+            <thead>
+            <tr>
+                <td width="20%">Rank</td>
+                <td width="60%">Name</td>
+                <td width="20%">Score</td>
+            </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        (function ($) {
+            'use strict';
+
+            HtmlCg.run(new Template());
+
+            function Template () {
+                this.$template = $('.template').css('display', 'none');
+                this.$tbody = this.$template.find('tbody');
+                this.data = [];
+
+                this.load = function () {
+                    this.fakeData();
+                };
+
+                this.play = function () {
+                    this.idx = 0;
+                    this.insertRows();
+                    this.updateRows();
+                    this.showTable().then(function () {
+                        return this.showRows();
+                    }.bind(this));
+                };
+
+                this.next = function () {
+                    if (!this.hasNext()) {
+                        return this.stop();
+                    }
+
+                    var self = this;
+                    this.hideRows().then(function () {
+                        self.updateRows();
+                        return self.showRows();
+                    });
+                };
+
+                this.hasNext = function () {
+                    return this.data.length > this.idx;
+                };
+
+                this.stop = function () {
+                    this.hideRows().then(function () {
+                        return this.hideTable();
+                    }.bind(this));
+                };
+
+                this.insertRows = function () {
+                    this.$tbody.find('tr').remove();
+                    for (var i = 0; i < 8; i++) {
+                        var $tr = $('<tr style="display:none"><td>1</td><td>2</td><td>3</td></tr>');
+                        $tr.appendTo(this.$tbody);
+                    }
+                };
+
+                this.updateRows = function () {
+                    var self = this;
+                    this.$tbody.find('tr').each(function () {
+                        var data = self.data[ self.idx ];
+                        if (data) {
+                            var $td = $(this).find('td');
+                            $td.eq(0).text(data.rank);
+                            $td.eq(1).text(data.name);
+                            $td.eq(2).text(data.score);
+                        } else {
+                            $(this).remove();
+                        }
+
+                        self.idx += 1;
+                    });
+                };
+
+                this.showTable = function () {
+                    return $.Velocity(this.$template, 'transition.expandIn');
+                };
+
+                this.hideTable = function () {
+                    return $.Velocity(this.$template, 'transition.expandOut');
+                };
+
+                this.showRows = function () {
+                    return $.Velocity(this.$tbody.find('tr'), 'transition.flipBounceYIn', {
+                        stagger: 150
+                    });
+                };
+
+                this.hideRows = function () {
+                    return $.Velocity(this.$tbody.find('tr'), 'transition.flipBounceYOut', {
+                        stagger: 150,
+                        backwards: true
+                    });
+                };
+
+                this.fakeData = function () {
+                    var names = [ 'Nestor Soto', 'Ashton Joseph', 'Dillion Burch', 'Grant Kane', 'Tristan Delgado', 'Yvonne Cain', 'Quentin Monroe', 'Alexander Bridges', 'Whitney Strickland', 'Kobe Clayton', 'Remington Snider', 'Travis Gay', 'Aliyah Cummings', 'Guillermo Webb', 'Ramon Coffey', 'Leonel Cooley', 'Giancarlo Shannon', 'Traci Martin', 'Tyrone Brown', 'Henry Goff', 'Colton Berry', 'Quincy Campbell' ];
+                    this.data = names.map(function (name) {
+                        return {
+                            name: name,
+                            score: Math.max(0, (Math.random() * (6) - 1)).toFixed(1)
+                        }
+                    }).sort(function (a, b) {
+                        return b.score - a.score;
+                    });
+                    this.data.forEach(function (current, index, array) {
+                        var previous = index > 0 ? array[ index - 1 ] : null;
+                        current.rank = !previous ? 1 : (previous.score === current.score ? previous.rank : index + 1);
+                    })
+                };
+            }
+        })(jQuery);
+    </script>
+{% endblock %}

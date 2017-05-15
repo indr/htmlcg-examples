@@ -13,6 +13,12 @@
     <script type="text/javascript">
         (function ($) {
             'use strict';
+
+            HtmlCg.run(new Template(), {
+                api: [ 'bounce', 'pulse', 'shake', 'tada' ],
+                data: '{\n  "f0": "Example lower-third template (f0)",\n  "f1": "With subtitle (f1)"\n}'
+            });
+
             function Template () {
                 this.$template = $('.template');
                 this.$title = $('.textbox-title');
@@ -73,11 +79,6 @@
                     this.$template.velocity('callout.tada');
                 };
             }
-
-            HtmlCg.run(new Template(), {
-                api: [ 'bounce', 'pulse', 'shake', 'tada' ],
-                data: '{\n  "f0": "Example lower-third template (f0)",\n  "f1": "With subtitle (f1)"\n}'
-            });
         })(jQuery);
     </script>
 {% endblock %}

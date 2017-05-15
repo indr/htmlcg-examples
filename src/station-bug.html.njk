@@ -15,6 +15,9 @@
     <script type="text/javascript">
         (function ($, window) {
             'use strict';
+
+            HtmlCg.run(new Template());
+
             function Template () {
                 var fadeInOutMs = 400;
                 var intervalMs = 4000;
@@ -77,8 +80,6 @@
                     });
                 }
             }
-
-            HtmlCg.run(new Template());
         })(jQuery, window);
     </script>
 {% endblock %}

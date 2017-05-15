@@ -10,6 +10,9 @@
     font-weight: normal;
 }
 
+/*
+ * Template positions and sizes
+ */
 .template {
     position: fixed;
     display: block;
@@ -25,6 +28,16 @@
     width: 90%;
 }
 
+.full-list {
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: auto;
+}
+
+/*
+ * Textboxes
+ */
 div.textbox {
     opacity: 1;
     overflow: hidden;
@@ -50,4 +63,26 @@ div.textbox-subtitle p {
     background-color: white;
     font-size: 30px;
     color: #eda129;
+}
+
+/*
+ * Table
+ */
+.template table {
+    width: 100%;
+}
+
+.template thead td,
+.template tfoot td {
+    padding: 6px 12px;
+    font-size: 30px;
+    color: white;
+    background-color: #eda129;
+}
+
+.template tbody td {
+    padding: 6px 12px;
+    font-size: 30px;
+    color: #eda129;
+    background-color: white;
 }
