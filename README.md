@@ -2,7 +2,7 @@
 
 Project structure with samples for a new htmlcg-framework project
 
-## Installation
+## Usage
 
 - Download latest zip archive from the `dist` directory.
 - Unpack and place the files in your CasparCG templates directory.
@@ -18,13 +18,13 @@ See [Installation and setup instructions for Windows](https://github.com/indr/ht
 - `npm install -g gulp`
 - `npm install`
 
-### Building / Running
+### Building and running
 
 - Use `gulp build` to build templates
 - Use `gulp serve` to build and start local development server with live reload
 - Visit your templates at http://localhost:4200/
 - Use `gulp` or `gulp dist` to build distributable file for production
 
-## Copyright and License
+## Copyright and license
 
 Copyright (c) 2017 Reto Inderbitzin, [MIT](LICENSE)
