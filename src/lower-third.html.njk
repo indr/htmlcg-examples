@@ -14,6 +14,7 @@
         (function ($) {
             'use strict';
             function Template () {
+                this.$template = $('.template');
                 this.$title = $('.textbox-title');
                 this.$subtitle = $('.textbox-subtitle');
 
@@ -54,10 +55,29 @@
                     this.data = $.extend({}, this.data, data);
                     this.$title.find('span').text(this.data.f0);
                     this.$subtitle.find('span').text(this.data.f1);
-                }
+                };
+
+                this.bounce = function () {
+                    this.$template.velocity('callout.bounce');
+                };
+
+                this.pulse = function () {
+                    this.$template.velocity('callout.pulse');
+                };
+
+                this.shake = function () {
+                    this.$template.velocity('callout.shake');
+                };
+
+                this.tada = function () {
+                    this.$template.velocity('callout.tada');
+                };
             }
 
-            HtmlCg.run(new Template());
+            HtmlCg.run(new Template(), {
+                api: [ 'bounce', 'pulse', 'shake', 'tada' ],
+                data: '{\n  "f0": "Example lower-third template (f0)",\n  "f1": "With subtitle (f1)"\n}'
+            });
         })(jQuery);
     </script>
 {% endblock %}
