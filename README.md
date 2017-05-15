@@ -1,6 +1,6 @@
 # htmlcg-starter
 
-Project structure with samples for a new htmlcg-framework project
+Project structure with samples for a new [htmlcg-framework](https://github.com/indr/htmlcg-framework) project.
 
 ## Usage
 
