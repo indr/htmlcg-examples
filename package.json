@@ -1,6 +1,6 @@
 {
   "name": "htmlcg-starter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Project structure with samples for a new htmlcg-framework project",
   "main": "gulpfile.js",
   "scripts": {
