@@ -1,11 +1,6 @@
-# htmlcg-starter
+# htmlcg-examples
 
-Project structure with samples for a new [htmlcg-framework](https://github.com/indr/htmlcg-framework) project.
-
-## Usage
-
-- Download latest zip archive from the `dist` directory.
-- Unpack and place the files in your CasparCG templates directory.
+Collection of example templates showing the usage of htmlcg-framework.
 
 ## Development
 

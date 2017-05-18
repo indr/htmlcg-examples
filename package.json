@@ -1,21 +1,21 @@
 {
-  "name": "htmlcg-starter",
-  "version": "0.3.0",
-  "description": "Project structure with samples for a new htmlcg-framework project",
+  "name": "htmlcg-examples",
+  "version": "0.1.0",
+  "description": "htmlcg-framework example templates",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/indr/htmlcg-starter.git"
+    "url": "git+https://github.com/indr/htmlcg-examples.git"
   },
   "author": "Reto Inderbitzin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/indr/htmlcg-starter/issues"
+    "url": "https://github.com/indr/htmlcg-examples/issues"
   },
-  "homepage": "https://github.com/indr/htmlcg-starter#readme",
+  "homepage": "https://github.com/indr/htmlcg-examples#readme",
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
